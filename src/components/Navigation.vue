@@ -20,15 +20,22 @@
 </template>
 
 <script>
+import store from "../store/index";
+import { computed } from "vue";
+import { supabase } from "../supabase/init";
+import { useRouter } from "vue-router";
 export default {
   setup() {
     // Get user from store
-
+    const user = computed(() => store.state.user);
     // Setup ref to router
-
+    const router = useRouter();
     // Logout function
-
-    return {};
+    const logout = async () => {
+      await supabase.auth.signOut();
+      router.push({ name: "Home" });
+    };
+    return { logout, user };
   },
 };
 </script>
