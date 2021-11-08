@@ -4,7 +4,7 @@
 
 <script>
 import {ref} from "vue";
-
+import { uid } from "uid";
 export default {
   name: "create",
   setup() {
@@ -16,6 +16,18 @@ export default {
     const errorMsg = ref(null);
 
     // Add exercise
+    const addExcercise = () => {
+      if(workoutType.value == "strength"){
+         exercises.value.push({
+          id: uid(),
+          exercise: "",
+          sets: "",
+          reps: "",
+          weight: "",
+         })
+      }
+    }
+    
 
     // Delete exercise
 
