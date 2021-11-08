@@ -53,6 +53,31 @@ export default {
     // Listens for chaging of workout type input
 
     // Create workout
+    const createWorkout = async () => {
+      try {
+        const { error } = await supabase.from("workouts").insert([
+          {
+            workoutName: workoutName.value,
+            workoutType: workoutType.value,
+            exercises: exercises.value,
+          },
+        ]);
+        if (error) throw error;
+        statusMsg.value = "Succes: Workout Created!";
+        workoutName.value = null;
+        workoutType.value = "select-workout";
+        exercises.value = [];
+        setTimeout(() => {
+          statusMsg.value = false;
+        }, 5000);
+      } catch (error) {
+        errorMsg.value = `Error: ${error.message}`;
+        setTimeout(() => {
+          errorMsg.value = false;
+        }, 5000);
+      }
+    };
+
 
     return {};
   },
