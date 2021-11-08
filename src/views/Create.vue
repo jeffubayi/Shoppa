@@ -5,6 +5,7 @@
 <script>
 import {ref} from "vue";
 import { uid } from "uid";
+import { supabase } from "../supabase/init";
 export default {
   name: "create",
   setup() {
@@ -16,7 +17,7 @@ export default {
     const errorMsg = ref(null);
 
     // Add exercise
-    const addExcercise = () => {
+    const  addExercise = () => {
       if(workoutType.value == "strength"){
          exercises.value.push({
           id: uid(),
@@ -51,6 +52,10 @@ export default {
     }
 
     // Listens for chaging of workout type input
+    const workoutChange = () => {
+      exercises.value = [];
+      addExercise();
+    };
 
     // Create workout
     const createWorkout = async () => {
@@ -79,7 +84,17 @@ export default {
     };
 
 
-    return {};
+    return {
+            workoutName,
+      workoutType,
+      exercises,
+      statusMsg,
+      errorMsg,
+      addExercise,
+      workoutChange,
+      deleteExercise,
+      createWorkout,
+    };
   },
 };
 </script>
