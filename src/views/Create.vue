@@ -25,11 +25,30 @@ export default {
           reps: "",
           weight: "",
          })
+         return;
       }
+      exercises.value.push({
+        id: uid(),
+        cardioType: "",
+        distance: "",
+        duration: "",
+        pace: "",
+      });
     }
     
 
     // Delete exercise
+    const deleteExercise = (id) => {
+       if (exercises.value.length > 1) {
+        exercises.value = exercises.value.filter((exercise) => exercise.id !== id);
+        return;
+      }
+      errorMsg.value = "Error: Cannot remove, need to at least have one exercise";
+      setTimeout(() => {
+        errorMsg.value = false;
+      }, 5000);
+      
+    }
 
     // Listens for chaging of workout type input
 
