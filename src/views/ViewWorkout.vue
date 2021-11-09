@@ -336,10 +336,20 @@
 </template>
 
 <script>
+import { ref, computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import store from "../store/index";
 export default {
   name: "view-workout",
   setup() {
     // Create data / vars
+    const data = ref(null);
+    const dataLoaded = ref(null);
+    const errorMsg = ref(null);
+    const statusMsg = ref(null);
+    const route = useRoute();
+    const router = useRouter();
+    const user = computed(() => store.state.user);
 
     // Get current Id of route
 
