@@ -423,6 +423,18 @@ export default {
 
 
     // Delete exercise
+     const deleteExercise = (id) => {
+      if (data.value.exercises.length > 1) {
+        data.value.exercises = data.value.exercises.filter(
+          (exercise) => exercise.id !== id
+        );
+        return;
+      }
+      errorMsg.value = "Error: Cannot remove, need to at least have one exercise";
+      setTimeout(() => {
+        errorMsg.value = false;
+      }, 5000);
+    };
 
     // Update Workout
 
