@@ -340,6 +340,8 @@ import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import store from "../store/index";
 import { supabase } from "../supabase/init";
+import { uid } from "uid";
+
 export default {
   name: "view-workout",
   setup() {
@@ -399,6 +401,26 @@ export default {
     };
 
     // Add exercise
+     const addExercise = () => {
+      if (data.value.workoutType === "strength") {
+        data.value.exercises.push({
+          id: uid(),
+          exercise: "",
+          sets: "",
+          reps: "",
+          weight: "",
+        });
+        return;
+      }
+      data.value.exercises.push({
+        id: uid(),
+        cardioType: "",
+        distance: "",
+        duration: "",
+        pace: "",
+      });
+    };
+
 
     // Delete exercise
 
