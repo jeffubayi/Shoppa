@@ -393,6 +393,10 @@ export default {
     };
 
     // Edit mode
+    const edit = ref(null);
+    const editMode = () => {
+      edit.value = !edit.value;
+    };
 
     // Add exercise
 
