@@ -339,6 +339,7 @@
 import { ref, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import store from "../store/index";
+import { supabase } from "../supabase/init";
 export default {
   name: "view-workout",
   setup() {
@@ -352,8 +353,27 @@ export default {
     const user = computed(() => store.state.user);
 
     // Get current Id of route
+    const currentId = route.params.workoutId;
 
     // Get workout data
+     const getData = async () => {
+      try {
+        const { data: workouts, error } = await supabase
+          .from("workouts")
+          .select("*")
+          .eq("id", currentId);
+        if (error) throw error;
+        data.value = workouts[0];
+        dataLoaded.value = true;
+        console.log(data.value);
+      } catch (error) {
+        errorMsg.value = error.message;
+        setTimeout(() => {
+          errorMsg.value = false;
+        }, 5000);
+      }
+    };
+    getData();
 
     // Delete workout
 
