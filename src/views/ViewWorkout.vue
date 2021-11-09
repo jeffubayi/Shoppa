@@ -437,8 +437,43 @@ export default {
     };
 
     // Update Workout
-
-    return {};
+    const update = async () => {
+      try {
+        const { error } = await supabase
+          .from("workouts")
+          .update({
+            workoutName: data.value.workoutName,
+            exercises: data.value.exercises,
+          })
+          .eq("id", currentId);
+        if (error) throw error;
+        edit.value = false;
+        statusMsg.value = "Success: Workout Updated!";
+        setTimeout(() => {
+          statusMsg.value = false;
+        }, 5000);
+      } catch (error) {
+        errorMsg.value`Error: ${error.message}`;
+        setTimeout(() => {
+          errorMsg.value = false;
+        }, 5000);
+      }
+    };
+    return {
+      statusMsg,
+      data,
+      dataLoaded,
+      errorMsg,
+      edit,
+      editMode,
+      user,
+      deleteWorkout,
+      addExercise,
+      deleteExercise,
+      update,
+    };
+  },
+};
   },
 };
 </script>
