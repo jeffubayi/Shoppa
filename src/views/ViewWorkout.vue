@@ -376,6 +376,21 @@ export default {
     getData();
 
     // Delete workout
+     const deleteWorkout = async () => {
+      try {
+        const { error } = await supabase
+          .from("workouts")
+          .delete()
+          .eq("id", currentId);
+        if (error) throw error;
+        router.push({ name: "Home" });
+      } catch (error) {
+        errorMsg.value = `Error: ${error.message}`;
+        setTimeout(() => {
+          errorMsg.value = false;
+        }, 5000);
+      }
+    };
 
     // Edit mode
 
