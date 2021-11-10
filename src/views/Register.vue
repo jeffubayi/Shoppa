@@ -65,10 +65,19 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { supabase } from "../supabase/init";
+import { useRouter } from "vue-router";
 export default {
   name: "register",
   setup() {
     // Create data / vars
+    const router = useRouter();
+    const email = ref(null);
+    const password = ref(null);
+    const confirmPassword = ref(null);
+    const errorMsg = ref(null);
+
 
     // Register function
 
