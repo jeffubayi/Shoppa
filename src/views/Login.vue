@@ -53,6 +53,7 @@
 
 <script>
 import { ref } from "vue";
+import { supabase } from "../supabase/init";
 import { useRouter } from "vue-router";
 export default {
   name: "login",
@@ -64,7 +65,22 @@ export default {
     const errorMsg = ref(null);
 
     // Login function
-
+    const login = async () => {
+      try {
+        const { error } = await supabase.auth.signIn({
+          email: email.value,
+          password: password.value,
+        });
+        if (error) throw error;
+        router.push({ name: "Home" });
+      } catch (error) {
+        errorMsg.value = `Error: ${error.message}`;
+        setTimeout(() => {
+          errorMsg.value = null;
+        }, 5000);
+      }
+    };
+    
     return {};
   },
 };
