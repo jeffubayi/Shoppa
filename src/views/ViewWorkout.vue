@@ -337,11 +337,10 @@
 
 <script>
 import { ref, computed } from "vue";
+import { supabase } from "../supabase/init";
 import { useRoute, useRouter } from "vue-router";
 import store from "../store/index";
-import { supabase } from "../supabase/init";
 import { uid } from "uid";
-
 export default {
   name: "view-workout",
   setup() {
@@ -358,7 +357,7 @@ export default {
     const currentId = route.params.workoutId;
 
     // Get workout data
-     const getData = async () => {
+    const getData = async () => {
       try {
         const { data: workouts, error } = await supabase
           .from("workouts")
@@ -375,10 +374,11 @@ export default {
         }, 5000);
       }
     };
+
     getData();
 
     // Delete workout
-     const deleteWorkout = async () => {
+    const deleteWorkout = async () => {
       try {
         const { error } = await supabase
           .from("workouts")
@@ -396,12 +396,13 @@ export default {
 
     // Edit mode
     const edit = ref(null);
+
     const editMode = () => {
       edit.value = !edit.value;
     };
 
     // Add exercise
-     const addExercise = () => {
+    const addExercise = () => {
       if (data.value.workoutType === "strength") {
         data.value.exercises.push({
           id: uid(),
@@ -421,16 +422,16 @@ export default {
       });
     };
 
-
     // Delete exercise
-     const deleteExercise = (id) => {
+    const deleteExercise = (id) => {
       if (data.value.exercises.length > 1) {
         data.value.exercises = data.value.exercises.filter(
           (exercise) => exercise.id !== id
         );
         return;
       }
-      errorMsg.value = "Error: Cannot remove, need to at least have one exercise";
+      errorMsg.value =
+        "Error: Cannot remove, need to at least have one exercise";
       setTimeout(() => {
         errorMsg.value = false;
       }, 5000);
@@ -459,6 +460,7 @@ export default {
         }, 5000);
       }
     };
+
     return {
       statusMsg,
       data,
@@ -472,8 +474,6 @@ export default {
       deleteExercise,
       update,
     };
-  },
-};
   },
 };
 </script>
