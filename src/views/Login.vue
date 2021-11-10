@@ -52,10 +52,16 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 export default {
   name: "login",
   setup() {
     // Create data / vars
+    const router = useRouter();
+    const email = ref(null);
+    const password = ref(null);
+    const errorMsg = ref(null);
 
     // Login function
 
