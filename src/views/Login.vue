@@ -81,7 +81,7 @@ export default {
       }
     };
     
-    return {};
+    return { email, password, errorMsg, login };
   },
 };
 </script>
