@@ -60,6 +60,10 @@ const router = createRouter({
 });
 
 // Change document titles
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title} | Active Tracker`;
+  next();
+});
 
 // Route guard for auth routes
 
