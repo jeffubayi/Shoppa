@@ -6,6 +6,10 @@
 </template>
 
 <script>
+import Navigation from "./components/Navigation.vue";
+import { ref } from "vue";
+import { supabase } from "./supabase/init";
+import store from "./store/index";
 export default {
   setup() {
     // Create data / vars
