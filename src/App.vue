@@ -11,6 +11,9 @@ import { ref } from "vue";
 import { supabase } from "./supabase/init";
 import store from "./store/index";
 export default {
+  components: {
+    Navigation,
+  },
   setup() {
     // Create data / vars
 
