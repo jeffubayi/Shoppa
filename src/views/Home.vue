@@ -4,51 +4,63 @@
     <div v-if="data.length === 0" class="w-full flex flex-col items-center">
       <h1 class="text-2xl">Looks empty here...</h1>
       <router-link
-        class="mt-6 py-2 px-6 rounded-sm  text-sm
-      text-white bg-at-light-green duration-200 border-solid
-      border-2 border-transparent hover:border-at-light-green hover:bg-white
-      hover:text-at-light-green"
+        class="
+          mt-6
+          py-2
+          px-6
+          rounded-sm
+          text-sm text-white
+          bg-at-light-green
+          duration-200
+          border-solid border-2 border-transparent
+          hover:border-at-light-green hover:bg-white hover:text-at-light-green
+        "
         :to="{ name: 'Create' }"
         >Create Workout</router-link
       >
     </div>
 
     <!-- Data -->
-    <div
-      v-else
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-    >
+
+    <div class="max-w-sm rounded overflow-hidden shadow-lg " v-else>
       <router-link
-        class="flex flex-col items-center bg-light-grey p-8 shadow-md cursor-pointer"
+        class="
+          flex flex-col
+          items-center
+          p-8
+          shadow-md
+          cursor-pointer
+          mb-3
+        "
         :to="{ name: 'View-Workout', params: { workoutId: workout.id } }"
         v-for="(workout, index) in data"
         :key="index"
       >
-        <!-- Cardio Img -->
         <img
-          v-if="workout.workoutType === 'cardio'"
-          src="@/assets/images/running-light-green.png"
-          class="h-24 w-auto"
-          alt=""
+          class="w-full"
+          src="https://www.lux-review.com/wp-content/uploads/2020/12/grocery-shopping.jpg"
+          alt="Sunset in the mountains"
         />
-
-        <!-- Strength Training -->
-        <img
-          v-else
-          src="@/assets/images/dumbbell-light-green.png"
-          class="h-24 w-auto"
-          alt=""
-        />
-
-        <p
-          class="mt-6 py-1 px-3 text-xs text-white bg-at-light-green shadow-md rounded-lg"
-        >
-          {{ workout.workoutType }}
-        </p>
-
-        <h1 class="mt-8 mb-2 text-center text-xl text-at-light-green">
-          {{ workout.workoutName }}
-        </h1>
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2">{{ workout.workoutName }}</div>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span
+            class="
+              inline-block
+              bg-gray-200
+              rounded-full
+              px-3
+              py-1
+              text-sm
+              font-semibold
+              text-gray-700
+              mr-2
+              mb-2
+            "
+            ># {{ workout.workoutType }}</span
+          >
+        </div>
       </router-link>
     </div>
   </div>
@@ -67,7 +79,9 @@ export default {
     // Get data
     const getData = async () => {
       try {
-        const { data: workouts, error } = await supabase.from("workouts").select("*");
+        const { data: workouts, error } = await supabase
+          .from("workouts")
+          .select("*");
         if (error) throw error;
         data.value = workouts;
         dataLoaded.value = true;
