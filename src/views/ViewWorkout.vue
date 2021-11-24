@@ -72,14 +72,14 @@
         <img
           v-if="data.workoutType === 'cardio'"
           class="h-24 w-auto"
-          src="@/assets/images/running-light-green.png"
+          src="https://cdn3.iconfinder.com/data/icons/random-4/96/food-vegetables-groceries-cook-shopping-bag-512.png"
           alt=""
         />
 
         <img
           v-else
           class="h-24 w-auto"
-          src="@/assets/images/dumbbell-light-green.png"
+          src="https://cdn3.iconfinder.com/data/icons/random-4/96/food-vegetables-groceries-cook-shopping-bag-512.png"
           alt=""
         />
 
@@ -137,7 +137,7 @@
                 for="exercise-name"
                 class="mb-1 text-sm text-at-light-green"
               >
-                Exercise
+                Item
               </label>
               <input
                 id="exercise-name"
@@ -150,7 +150,7 @@
             </div>
             <div class="flex flex-1 flex-col">
               <label for="sets" class="mb-1 text-sm text-at-light-green">
-                Sets
+                Packets(Litres / Pieces)
               </label>
               <input
                 v-if="edit"
@@ -163,7 +163,7 @@
             </div>
             <div class="flex flex-1 flex-col">
               <label for="reps" class="mb-1 text-sm text-at-light-green">
-                Reps
+                Price
               </label>
               <input
                 v-if="edit"
@@ -173,19 +173,6 @@
                 v-model="item.reps"
               />
               <p v-else>{{ item.reps }}</p>
-            </div>
-            <div class="flex flex-1 flex-col">
-              <label for="weight" class="mb-1 text-sm text-at-light-green">
-                Weight (LB's)
-              </label>
-              <input
-                v-if="edit"
-                id="weight"
-                class="p-2 w-full text-gray-500 focus:outline-none"
-                type="text"
-                v-model="item.weight"
-              />
-              <p v-else>{{ item.weight }}</p>
             </div>
             <img
               v-if="edit"
@@ -213,7 +200,7 @@
               hover:text-at-light-green
             "
           >
-            Add Exercise
+            Add Item
           </button>
         </div>
 

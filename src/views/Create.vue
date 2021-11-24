@@ -58,7 +58,7 @@
           >
             <div class="flex flex-col md:w-1/3">
               <label for="exercise-name" class="mb-1 text-sm text-at-light-green"
-                >Exercise
+                >Item
               </label>
               <input
                 required
@@ -68,7 +68,7 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="sets" class="mb-1 text-sm text-at-light-green">Sets </label>
+              <label for="sets" class="mb-1 text-sm text-at-light-green">Pieces </label>
               <input
                 required
                 type="text"
@@ -77,7 +77,7 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="reps" class="mb-1 text-sm text-at-light-green">Reps </label>
+              <label for="reps" class="mb-1 text-sm text-at-light-green">Price </label>
               <input
                 required
                 type="text"
@@ -111,7 +111,7 @@
       border-2 border-transparent hover:border-at-light-green hover:bg-white
       hover:text-at-light-green"
           >
-            Add Exercise
+            Add Item
           </button>
         </div>
 
