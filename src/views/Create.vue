@@ -15,12 +15,12 @@
     <div class="p-8 flex items-start bg-light-grey rounded-md shadow-lg">
       <!-- Form -->
       <form @submit.prevent="createWorkout" class="flex flex-col gap-y-5 w-full">
-        <h1 class="text-2xl text-at-light-green">Record Workout</h1>
+        <h1 class="text-2xl text-at-light-green">Categorize your shopping list</h1>
 
         <!-- Workout Name -->
         <div class="flex flex-col">
           <label for="workout-name" class="mb-1 text-sm text-at-light-green"
-            >Workout Name</label
+            >Enter list name</label
           >
           <input
             type="text"
@@ -34,7 +34,7 @@
         <!-- Workout Type -->
         <div class="flex flex-col">
           <label for="workout-type" class="mb-1 text-sm text-at-light-green"
-            >Workout Type</label
+            >Select Category</label
           >
           <select
             id="workout-type"
@@ -43,9 +43,11 @@
             @change="workoutChange"
             v-model="workoutType"
           >
-            <option value="select-workout">Select Workout</option>
-            <option value="strength">Strength Training</option>
-            <option value="cardio">Cardio</option>
+            <option value="select-workout">Select category</option>
+            <option value="strength">Groceries</option>
+            <option value="cardio">Electronics</option>
+            <option value="strength">Breakfast</option>
+            <option value="cardio">Miscellaneous</option>
           </select>
         </div>
 
@@ -56,7 +58,7 @@
             v-for="(item, index) in exercises"
             :key="index"
           >
-            <div class="flex flex-col md:w-1/3">
+            <div class="flex flex-col md:w-2/4">
               <label for="exercise-name" class="mb-1 text-sm text-at-light-green"
                 >Item
               </label>
@@ -68,7 +70,7 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="sets" class="mb-1 text-sm text-at-light-green">Pieces </label>
+              <label for="sets" class="mb-1 text-sm text-at-light-green">Pieces(Packets/Litres) </label>
               <input
                 required
                 type="text"
@@ -83,17 +85,6 @@
                 type="text"
                 class="p-2 w-full text-gray-500 focus:outline-none"
                 v-model="item.reps"
-              />
-            </div>
-            <div class="flex flex-col flex-1">
-              <label for="weight" class="mb-1 text-sm text-at-light-green"
-                >Weight (LB's)
-              </label>
-              <input
-                required
-                type="text"
-                class="p-2 w-full text-gray-500 focus:outline-none"
-                v-model="item.weight"
               />
             </div>
             <img
@@ -124,21 +115,21 @@
           >
             <div class="flex flex-col md:w-1/3">
               <label for="cardio-type" class="mb-1 text-sm text-at-light-green"
-                >Type
+                >Item
               </label>
               <select
                 id="cardio-type"
                 class="p-2 w-full text-gray-500 focus:outline-none"
                 v-model="item.cardioType"
               >
-                <option value="#">Select Type</option>
-                <option value="run">Runs</option>
-                <option value="walk">Walk</option>
+                <option value="#">Select category</option>
+                <option value="run">Drinks</option>
+                <option value="walk">Food</option>
               </select>
             </div>
             <div class="flex flex-col flex-1">
               <label for="distance" class="mb-1 text-sm text-at-light-green"
-                >Distance
+                >Quantity
               </label>
               <input
                 required
@@ -149,7 +140,7 @@
             </div>
             <div class="flex flex-col flex-1">
               <label for="duration" class="mb-1 text-sm text-at-light-green"
-                >Duration
+                >Guarantee
               </label>
               <input
                 required
@@ -159,7 +150,7 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="pace" class="mb-1 text-sm text-at-light-green">Pace </label>
+              <label for="pace" class="mb-1 text-sm text-at-light-green">Price </label>
               <input
                 required
                 type="text"
@@ -182,7 +173,7 @@
       border-2 border-transparent hover:border-at-light-green hover:bg-white
       hover:text-at-light-green"
           >
-            Add Exercise
+            Add Item
           </button>
         </div>
 
@@ -193,7 +184,7 @@
       border-2 border-transparent hover:border-at-light-green hover:bg-white
       hover:text-at-light-green"
         >
-          Record Workout
+          Save shopping List
         </button>
       </form>
     </div>

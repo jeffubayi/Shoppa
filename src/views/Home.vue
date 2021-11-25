@@ -21,8 +21,9 @@
     </div>
 
     <!-- Data -->
-
-    <div class="max-w-sm rounded overflow-hidden shadow-lg " v-else>
+    <section class="text-gray-600 body-font" v-else>
+  <div class="container px-5 py-24 mx-auto">
+     <div class="max-w-sm rounded overflow-hidden shadow-lg " >
       <router-link
         class="
           flex flex-col
@@ -31,6 +32,7 @@
           shadow-md
           cursor-pointer
           mb-3
+          mx-auto
         "
         :to="{ name: 'View-Workout', params: { workoutId: workout.id } }"
         v-for="(workout, index) in data"
@@ -62,7 +64,53 @@
           >
         </div>
       </router-link>
-    </div>
+    </div> 
+          
+  </div>
+</section>
+    <!-- Card -->
+<!-- <div class="" style="width: 350px">
+  <img
+    src="https://www.lux-review.com/wp-content/uploads/2020/12/grocery-shopping.jpg"
+    class="rounded-lg shadow-xl mb-4"
+    alt=""
+  />
+
+  <div class="text-center">
+    <h5 class="text-xl font-semibold mb-2">Card title</h5>
+
+    <p class="mb-4">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    </p>
+
+    <button
+      class="
+        bg-purple-500
+        text-white
+        active:bg-purple-600
+        font-bold
+        uppercase
+        text-xs
+        px-4
+        py-2
+        rounded
+        shadow
+        hover:shadow-md
+        outline-none
+        focus:outline-none
+        mr-1
+        mb-1
+        ease-linear
+        transition-all
+        duration-150
+      "
+      type="button"
+    >
+      Button
+    </button>
+  </div>
+</div> -->
+<!-- Card -->
   </div>
 </template>
 

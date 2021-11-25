@@ -150,7 +150,7 @@
             </div>
             <div class="flex flex-1 flex-col">
               <label for="sets" class="mb-1 text-sm text-at-light-green">
-                Packets(Litres / Pieces)
+                Quantity
               </label>
               <input
                 v-if="edit"
