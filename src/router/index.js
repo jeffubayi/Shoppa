@@ -48,7 +48,7 @@ const routes = [
     name: "View-Workout",
     component: ViewWorkout,
     meta: {
-      title: "View Workout",
+      title: "View list",
       auth: false,
     },
   },
