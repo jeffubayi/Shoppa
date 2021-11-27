@@ -70,7 +70,7 @@
         </div>
 
         <img
-          v-if="data.workoutType === 'cardio'"
+          v-if="data.workoutType === 'miscellaneous'"
           class="h-24 w-auto"
           src="https://cdn3.iconfinder.com/data/icons/random-4/96/food-vegetables-groceries-cook-shopping-bag-512.png"
           alt=""
@@ -124,7 +124,7 @@
       >
         <!-- Strength Training -->
         <div
-          v-if="data.workoutType === 'strength'"
+          v-if="data.workoutType === 'groceries'"
           class="flex flex-col gap-y-4 w-full"
         >
           <div
@@ -223,14 +223,14 @@
                 v-model="item.cardioType"
               >
                 <option value="#">Select Type</option>
-                <option value="run">Runs</option>
-                <option value="walk">Walk</option>
+                <option value="groceries">Groceries</option>
+                <option value="miscellaneous">Miscellaneous</option>
               </select>
               <p v-else>{{ item.cardioType }}</p>
             </div>
             <div class="flex flex-1 flex-col">
               <label for="distance" class="mb-1 text-sm text-at-light-green">
-                Distance
+                Name
               </label>
               <input
                 v-if="edit"
@@ -243,7 +243,7 @@
             </div>
             <div class="flex flex-1 flex-col">
               <label for="duration" class="mb-1 text-sm text-at-light-green">
-                Duration
+                Quantity
               </label>
               <input
                 v-if="edit"
@@ -256,7 +256,7 @@
             </div>
             <div class="flex flex-1 flex-col">
               <label for="pace" class="mb-1 text-sm text-at-light-green">
-                Pace
+                Price
               </label>
               <input
                 v-if="edit"
@@ -293,7 +293,7 @@
               hover:text-at-light-green
             "
           >
-            Add Exercise
+            Add Item
           </button>
         </div>
       </div>
@@ -316,7 +316,7 @@
           hover:border-at-light-green hover:bg-white hover:text-at-light-green
         "
       >
-        Update Workout
+        Update List
       </button>
     </div>
   </div>
@@ -390,7 +390,7 @@ export default {
 
     // Add exercise
     const addExercise = () => {
-      if (data.value.workoutType === "strength") {
+      if (data.value.workoutType === "groceries") {
         data.value.exercises.push({
           id: uid(),
           exercise: "",
@@ -436,7 +436,7 @@ export default {
           .eq("id", currentId);
         if (error) throw error;
         edit.value = false;
-        statusMsg.value = "Success: Workout Updated!";
+        statusMsg.value = "Success: List Updated!";
         setTimeout(() => {
           statusMsg.value = false;
         }, 5000);
