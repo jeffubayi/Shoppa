@@ -14,8 +14,13 @@
     <!-- Create -->
     <div class="p-8 flex items-start bg-light-grey rounded-md shadow-lg">
       <!-- Form -->
-      <form @submit.prevent="createWorkout" class="flex flex-col gap-y-5 w-full">
-        <h1 class="text-2xl text-at-light-green">Categorize your shopping list</h1>
+      <form
+        @submit.prevent="createWorkout"
+        class="flex flex-col gap-y-5 w-full"
+      >
+        <h1 class="text-2xl text-at-light-green">
+          Categorize your shopping list
+        </h1>
 
         <!-- Workout Name -->
         <div class="flex flex-col">
@@ -44,22 +49,22 @@
             v-model="workoutType"
           >
             <option value="select-workout">Select category</option>
-            <option value="strength">Groceries</option>
-            <option value="cardio">Electronics</option>
-            <option value="strength">Breakfast</option>
-            <option value="cardio">Miscellaneous</option>
+            <option value="groceries">Groceries</option>
+            <option value="miscellaneous">Miscellaneous</option>
           </select>
         </div>
 
         <!-- Strength Training Inputs -->
-        <div v-if="workoutType === 'strength'" class="flex flex-col gap-y-4">
+        <div v-if="workoutType === 'groceries'" class="flex flex-col gap-y-4">
           <div
             class="flex flex-col gap-x-6 gap-y-2 relative md:flex-row"
             v-for="(item, index) in exercises"
             :key="index"
           >
             <div class="flex flex-col md:w-2/4">
-              <label for="exercise-name" class="mb-1 text-sm text-at-light-green"
+              <label
+                for="exercise-name"
+                class="mb-1 text-sm text-at-light-green"
                 >Item
               </label>
               <input
@@ -70,7 +75,9 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="sets" class="mb-1 text-sm text-at-light-green">Pieces(Packets/Litres) </label>
+              <label for="sets" class="mb-1 text-sm text-at-light-green"
+                >Pieces(Packets/Litres)
+              </label>
               <input
                 required
                 type="text"
@@ -79,7 +86,9 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="reps" class="mb-1 text-sm text-at-light-green">Price </label>
+              <label for="reps" class="mb-1 text-sm text-at-light-green"
+                >Price
+              </label>
               <input
                 required
                 type="text"
@@ -97,17 +106,30 @@
           <button
             @click="addExercise"
             type="button"
-            class="mt-6 py-2 px-6 rounded-sm self-start text-sm
-      text-white bg-at-light-green duration-200 border-solid
-      border-2 border-transparent hover:border-at-light-green hover:bg-white
-      hover:text-at-light-green"
+            class="
+              mt-6
+              py-2
+              px-6
+              rounded-sm
+              self-start
+              text-sm text-white
+              bg-at-light-green
+              duration-200
+              border-solid border-2 border-transparent
+              hover:border-at-light-green
+              hover:bg-white
+              hover:text-at-light-green
+            "
           >
             Add Item
           </button>
         </div>
 
         <!-- Cardio Inputs -->
-        <div v-if="workoutType === 'cardio'" class="flex flex-col gap-y-4">
+        <div
+          v-if="workoutType === 'miscellaneous'"
+          class="flex flex-col gap-y-4"
+        >
           <div
             class="flex flex-col gap-x-6 gap-y-2 relative md:flex-row"
             v-for="(item, index) in exercises"
@@ -123,13 +145,13 @@
                 v-model="item.cardioType"
               >
                 <option value="#">Select category</option>
-                <option value="run">Drinks</option>
-                <option value="walk">Food</option>
+                <option value="drinks">Drinks</option>
+                <option value="food">Food stuff</option>
               </select>
             </div>
             <div class="flex flex-col flex-1">
               <label for="distance" class="mb-1 text-sm text-at-light-green"
-                >Quantity
+                >Name
               </label>
               <input
                 required
@@ -140,7 +162,7 @@
             </div>
             <div class="flex flex-col flex-1">
               <label for="duration" class="mb-1 text-sm text-at-light-green"
-                >Guarantee
+                >Quantity(Ltrs)
               </label>
               <input
                 required
@@ -150,7 +172,9 @@
               />
             </div>
             <div class="flex flex-col flex-1">
-              <label for="pace" class="mb-1 text-sm text-at-light-green">Price </label>
+              <label for="pace" class="mb-1 text-sm text-at-light-green"
+                >Price
+              </label>
               <input
                 required
                 type="text"
@@ -168,10 +192,20 @@
           <button
             @click="addExercise"
             type="button"
-            class="mt-6 py-2 px-6 rounded-sm self-start text-sm
-      text-white bg-at-light-green duration-200 border-solid
-      border-2 border-transparent hover:border-at-light-green hover:bg-white
-      hover:text-at-light-green"
+            class="
+              mt-6
+              py-2
+              px-6
+              rounded-sm
+              self-start
+              text-sm text-white
+              bg-at-light-green
+              duration-200
+              border-solid border-2 border-transparent
+              hover:border-at-light-green
+              hover:bg-white
+              hover:text-at-light-green
+            "
           >
             Add Item
           </button>
@@ -179,10 +213,18 @@
 
         <button
           type="submit"
-          class="mt-6 py-2 px-6 rounded-sm self-start text-sm
-      text-white bg-at-light-green duration-200 border-solid
-      border-2 border-transparent hover:border-at-light-green hover:bg-white
-      hover:text-at-light-green"
+          class="
+            mt-6
+            py-2
+            px-6
+            rounded-sm
+            self-start
+            text-sm text-white
+            bg-at-light-green
+            duration-200
+            border-solid border-2 border-transparent
+            hover:border-at-light-green hover:bg-white hover:text-at-light-green
+          "
         >
           Save shopping List
         </button>
@@ -192,7 +234,7 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import { ref } from "vue";
 import { uid } from "uid";
 import { supabase } from "../supabase/init";
 export default {
@@ -206,16 +248,16 @@ export default {
     const errorMsg = ref(null);
 
     // Add exercise
-    const  addExercise = () => {
-      if(workoutType.value == "strength"){
-         exercises.value.push({
+    const addExercise = () => {
+      if (workoutType.value == "groceries") {
+        exercises.value.push({
           id: uid(),
           exercise: "",
           sets: "",
           reps: "",
           weight: "",
-         })
-         return;
+        });
+        return;
       }
       exercises.value.push({
         id: uid(),
@@ -224,21 +266,21 @@ export default {
         duration: "",
         pace: "",
       });
-    }
-    
+    };
 
     // Delete exercise
     const deleteExercise = (id) => {
-       if (exercises.value.length > 1) {
-        exercises.value = exercises.value.filter((exercise) => exercise.id !== id);
+      if (exercises.value.length > 1) {
+        exercises.value = exercises.value.filter(
+          (exercise) => exercise.id !== id
+        );
         return;
       }
-      errorMsg.value = "Error: Cannot remove, need to at least have one exercise";
+      errorMsg.value = "Error: Cannot remove, need to at least have one item";
       setTimeout(() => {
         errorMsg.value = false;
       }, 5000);
-      
-    }
+    };
 
     // Listens for chaging of workout type input
     const workoutChange = () => {
@@ -257,7 +299,7 @@ export default {
           },
         ]);
         if (error) throw error;
-        statusMsg.value = "Succes: Workout Created!";
+        statusMsg.value = "Success: List Created!";
         workoutName.value = null;
         workoutType.value = "select-workout";
         exercises.value = [];
@@ -272,9 +314,8 @@ export default {
       }
     };
 
-
     return {
-            workoutName,
+      workoutName,
       workoutType,
       exercises,
       statusMsg,
