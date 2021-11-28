@@ -99,33 +99,140 @@
                   </span>
                 </div>
 
-      <div class="flex flex-col mb-2">
-        <label for="confirmPassword" class="mb-1 text-sm text-at-light-green"
-          >Confirm Password</label
-        >
-        <input
-          type="password"
-          required
-          class="p-2 text-gray-500 focus:outline-none"
-          id="confirmPassword"
-          v-model="confirmPassword"
-        />
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  required
+                  v-model="password"
+                  class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    rounded-2xl
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                  placeholder="Enter your password"
+                />
+              </div>
+            </div>
+
+            <div class="flex flex-col mb-6">
+              <label
+                for="password"
+                class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                >Confirm Password:</label
+              >
+              <div class="relative">
+                <div
+                  class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                >
+                  <span>
+                    <i class="fas fa-lock text-blue-500"></i>
+                  </span>
+                </div>
+
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  required
+                  v-model="confirmPassword"
+                  class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    rounded-2xl
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                  placeholder="Enter your password"
+                />
+              </div>
+            </div>
+
+            <div class="flex w-full">
+              <button
+                type="submit"
+                class="
+                  flex
+                  mt-2
+                  items-center
+                  justify-center
+                  focus:outline-none
+                  text-white text-sm
+                  sm:text-base
+                  bg-at-light-green
+                  hover:bg-at-light-green
+                  rounded-2xl
+                  py-2
+                  w-full
+                  transition
+                  duration-150
+                  ease-in
+                "
+              >
+                <span class="mr-2 uppercase">Sign Up</span>
+                <span>
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-
-      <button
-        type="submit"
-        class="mt-6 py-2 px-6 rounded-sm self-start text-sm
-      text-white bg-at-light-green duration-200 border-solid
-      border-2 border-transparent hover:border-at-light-green hover:bg-white
-      hover:text-at-light-green"
-      >
-        Register
-      </button>
-
-      <router-link class="text-sm mt-6 text-center" :to="{ name: 'Login' }">
-        Already have an account? <span class="text-at-light-green">Login</span>
-      </router-link>
-    </form>
+      <div class="flex justify-center items-center mt-6">
+        <a
+          href="#"
+          target="_blank"
+          class="
+            inline-flex
+            items-center
+            text-gray-700
+            font-medium
+            text-xs text-center
+          "
+        >
+          <span class="ml-2"
+            >You have an account?
+            <router-link
+              :to="{ name: 'Login' }"
+              class="text-xs ml-2 text-at-light-green font-semibold"
+              >Login here</router-link
+            ></span
+          >
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -143,9 +250,8 @@ export default {
     const confirmPassword = ref(null);
     const errorMsg = ref(null);
 
-
     // Register function
-     const register = async () => {
+    const register = async () => {
       if (password.value === confirmPassword.value) {
         try {
           const { error } = await supabase.auth.signUp({
