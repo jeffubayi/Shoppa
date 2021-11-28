@@ -6,11 +6,28 @@
     </div>
 
     <!-- Register -->
-    <form
-      @submit.prevent="register"
-      class="p-8 flex flex-col bg-light-grey rounded-md shadow-lg"
-    >
-      <h1 class="text-3xl text-at-light-green mb-4">Register</h1>
+    <div class="p-3 flex flex-col bg-white">
+      <div
+        class="
+          flex flex-col
+          bg-white
+          shadow-md
+          px-4
+          sm:px-6
+          md:px-8
+          lg:px-10
+          py-8
+          rounded-3xl
+          w-50
+          max-w-md
+        "
+      >
+        <div class="font-medium self-center text-xl sm:text-3xl text-gray-800">
+          Join us Now
+        </div>
+        <div class="mt-4 self-center text-xl sm:text-sm text-gray-800">
+          Enter your credentials to get a Shoppa account
+        </div>
 
       <div class="flex flex-col mb-2">
         <label for="email" class="mb-1 text-sm text-at-light-green">Email</label>
