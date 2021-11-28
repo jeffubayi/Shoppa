@@ -29,27 +29,75 @@
           Enter your credentials to get a Shoppa account
         </div>
 
-      <div class="flex flex-col mb-2">
-        <label for="email" class="mb-1 text-sm text-at-light-green">Email</label>
-        <input
-          type="text"
-          required
-          class="p-2 text-gray-500 focus:outline-none"
-          id="email"
-          v-model="email"
-        />
-      </div>
+        <div class="mt-10">
+          <form @submit.prevent="register">
+            <div class="flex flex-col mb-5">
+              <label
+                for="email"
+                class="mb-1 text-xs tracking-wide text-gray-600"
+                >E-Mail Address:</label
+              >
+              <div class="relative">
+                <div
+                  class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                >
+                  <i class="fas fa-at text-blue-500"></i>
+                </div>
 
-      <div class="flex flex-col mb-2">
-        <label for="password" class="mb-1 text-sm text-at-light-green">Password</label>
-        <input
-          type="password"
-          required
-          class="p-2 text-gray-500 focus:outline-none"
-          id="password"
-          v-model="password"
-        />
-      </div>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  v-model="email"
+                  class="
+                    text-sm
+                    placeholder-gray-500
+                    pl-10
+                    pr-4
+                    rounded-2xl
+                    border border-gray-400
+                    w-full
+                    py-2
+                    focus:outline-none focus:border-blue-400
+                  "
+                  placeholder="Enter your email"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="password"
+                class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+                >Password:</label
+              >
+              <div class="relative">
+                <div
+                  class="
+                    inline-flex
+                    items-center
+                    justify-center
+                    absolute
+                    left-0
+                    top-0
+                    h-full
+                    w-10
+                    text-gray-400
+                  "
+                >
+                  <span>
+                    <i class="fas fa-lock text-blue-500"></i>
+                  </span>
+                </div>
 
       <div class="flex flex-col mb-2">
         <label for="confirmPassword" class="mb-1 text-sm text-at-light-green"
