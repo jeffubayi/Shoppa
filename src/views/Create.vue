@@ -301,7 +301,7 @@ export default {
         if (error) throw error;
         statusMsg.value = "Success: List Created!";
         workoutName.value = null;
-        workoutType.value = "select-workout";
+        workoutType.value = "select-list";
         exercises.value = [];
         setTimeout(() => {
           statusMsg.value = false;
